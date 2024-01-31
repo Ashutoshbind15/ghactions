@@ -7,4 +7,10 @@ describe("GET /", () => {
     expect(response.statusCode).toBe(200);
     expect(response.text).toBe("Hello World!");
   });
+
+  it("responds with Woof for GET /dogs", async () => {
+    const response = await request(app).get("/dogs");
+    expect(response.statusCode).toBe(200);
+    expect(response.text).toBe("Woof");
+  });
 });
