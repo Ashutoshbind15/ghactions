@@ -11,6 +11,6 @@ jobs:
         id: commit
         run: echo "::set-output name=message::$(git log -1 --pretty=%B)"
       - name: Log commit message
-        uses: Ashutoshbind15/commit-logger@master
+        uses: Ashutoshbind15/commit-logger@nodeenv
         with:
           COMMIT_MESSAGE: ${{ steps.commit.outputs.message }}
