@@ -1,0 +1,16 @@
+name: Log Commit Message
+
+on: [push]
+
+jobs:
+  log-message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get the commit message
+        id: commit
+        run: echo "::set-output name=message::$(git log -1 --pretty=%B)"
+      - name: Log commit message
+        uses: Ashutoshbind15/commit-logger@v1.0.0
+        with:
+          COMMIT_MESSAGE: ${{ steps.commit.outputs.message }}
